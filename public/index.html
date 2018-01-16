@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My App</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <div id="vue-app">
+
+    <router-view></router-view>
+
+  </div>
+</body>
+</html>
+
+<template id="mentee-home-page">
+  <div class="vue-component">
+
+    <h1>{{ message }}</h1>
+    <h2>{{ message2 }}</h2>
+    <h1>{{ mentee }}</h1>
+<p>
+    <div>
+    
+    Title:<input type="text" v-model="placeTitle">
+    First Name:<input type="text" v-model="placeFirstName">
+    Middle Name :<input type="text" v-model="placeMiddleName">
+    Last Name:<input type="text" v-model="placeUserName">
+    Suffix:<input type="text" v-model="placeSuffix"> 
+    DOB:<input type="text" v-model="placeBirthdate">
+
+    </div>   
+</p>
+
+<p>
+    <div>
+    Address:<input type="text" v-model="placeHomeAddress">
+    City:<input type="text" v-model="placeHomeCity">
+    State:<input type="text" v-model="placeHomeState">
+    Zip Code:<input type="text" v-model="placeHomePostalCode">
+    Home Phone:<input type="text" v-model="placeHomePhone">
+    Mobile Phone:<input type="text" v-model="placeMobilePhone">
+    Email:<input type="text" v-model="placeEmailAddress">
+    </div>  
+</p>
+
+<p>
+  <div>
+    
+    Regional Conf:<input type="text" v-model="placeRegionalConf">
+    Regional Conf Yr:<input type="text" v-model="placeRegionalConfYr">
+    Regional Conf State:<input type="text" v-model="placeRegionalConfState">
+    Regional Conf Pending:<input type="text" v-model="placeRegionalConfPending">
+
+  </div>
+</p>
+
+<p>
+  <div>
+    
+    National Conf:<input type="text" v-model="placeNationalConf">
+    National Conf Yr:<input type="text" v-model="placeNationalConfYr">
+    National Conf State:<input type="text" v-model="placeNationalConfState">
+    National Conf Pending:<input type="text" v-model="placeNationalConfPending">
+
+  </div>
+</p>
+
+<p>
+  <div>
+    
+    Date Joined:<input type="text" v-model="placeDateJoined">
+    Profession:<input type="text" v-model="placeProfession">
+    Area Of Focus:<input type="text" v-model="placeAreaOfFocus">
+    Active:<input type="text" v-model="placeActive">
+    Photo:<input type="text" v-model="placePhoto">
+    Additional Info:<input type="text" v-model="placeAdditionalInfo">
+
+  </div>
+</p>
+
+  <button v-on:click="addMentee()"> Click here to add Mentee</button>
+
+
+  </div>
+</template>
+
+<template id="mentor-home-page">
+  <div class="vue-component">
+
+    <h1> {{ message }} </h1>
+    <h2> {{ message2 }} </h2>
+    <h1> {{ mentor }} </h1>
+    
+<p>
+    <div>
+    
+    Title:<input type="text" v-model="placeTitle">
+    First Name:<input type="text" v-model="placeFirstName">
+    Middle Name :<input type="text" v-model="placeMiddleName">
+    Last Name:<input type="text" v-model="placeUserName">
+    Suffix:<input type="text" v-model="placeSuffix"> 
+    DOB:<input type="text" v-model="placeBirthdate">
+
+    </div>   
+</p>
+
+<p>
+    <div>
+    Address:<input type="text" v-model="placeHomeAddress">
+    City:<input type="text" v-model="placeHomeCity">
+    State:<input type="text" v-model="placeHomeState">
+    Zip Code:<input type="text" v-model="placeHomePostalCode">
+    Home Phone:<input type="text" v-model="placeHomePhone">
+    Mobile Phone:<input type="text" v-model="placeMobilePhone">
+    Email:<input type="text" v-model="placeEmailAddress">
+    </div>  
+</p>
+
+<p>
+  <div>
+    
+    Regional Conf:<input type="text" v-model="placeRegionalConf">
+    Regional Conf Yr:<input type="text" v-model="placeRegionalConfYr">
+    Regional Conf State:<input type="text" v-model="placeRegionalConfState">
+    Regional Conf Pending:<input type="text" v-model="placeRegionalConfPending">
+
+  </div>
+</p>
+
+<p>
+  <div>
+    
+    National Conf:<input type="text" v-model="placeNationalConf">
+    National Conf Yr:<input type="text" v-model="placeNationalConfYr">
+    National Conf State:<input type="text" v-model="placeNationalConfState">
+    National Conf Pending:<input type="text" v-model="placeNationalConfPending">
+
+  </div>
+</p>
+
+<p>
+  <div>
+    
+    Date Joined:<input type="text" v-model="placeDateJoined">
+    Profession:<input type="text" v-model="placeProfession">
+    Area Of Focus:<input type="text" v-model="placeAreaOfFocus">
+    Active:<input type="text" v-model="placeActive">
+    Photo:<input type="text" v-model="placePhoto">
+    Additional Info:<input type="text" v-model="placeAdditionalInfo">
+
+  </div>
+</p>
+
+  <button v-on:click="addMentor()"> Click here to add Mentor</button>
+
+
+  </div>
+</template>
