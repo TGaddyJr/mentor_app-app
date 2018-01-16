@@ -99,7 +99,19 @@
 <p>
     <div>
     
-    Title:<input type="text" v-model="placeTitle">
+    Title:<select id="leave" onchange="leaveChange()">
+      <option value="5">Mr. </option>
+      <option value="100">Mrs. </option>
+      <option value="90">Ms.</option>
+      <option value="15">Miss.</option>
+      <option value="15">Dr. </option>
+      
+      </select>
+      <div id="message"></div>
+      <script>
+      function leaveChange() {
+      (document.getElementById("leave").value != "100")}
+    </script> <input type="select" v-model="placeTitle">
     First Name:<input type="text" v-model="placeFirstName">
     Middle Name :<input type="text" v-model="placeMiddleName">
     Last Name:<input type="text" v-model="placeUserName">
@@ -161,3 +173,4 @@
 
   </div>
 </template>
+
