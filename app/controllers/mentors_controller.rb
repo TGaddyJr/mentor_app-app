@@ -36,7 +36,7 @@ class MentorsController < ApplicationController
       national_conf_pending: params[:national_conf_pending],
       active: params[:active],
       photo: params[:photo],
-      additional_info: params[:additional_info],
+      addtional_info: params[:additional_info],
       )
     mentor.save
     render json: mentor.as_json
