@@ -1,35 +1,13 @@
 /* global Vue, VueRouter, axios */
+
 var HomePage = {
   template: "#home-page",
   data: function() {
     return {
-      name: "",
-      email: "",
-      password: "",
-      passwordConfirmation: "",
-      errors: []
+      message: "Welcome to  TerranceLand",
+      message2: "TestTestTest"
     };
   },
-  methods: {
-    submit: function() {
-      var params = {
-        name: this.name,
-        email: this.email,
-        password: this.password,
-        password_confirmation: this.passwordConfirmation
-      };
-      axios
-        .post("/v1/users", params)
-        .then(function(response) {
-          router.push("/login");
-        })
-        .catch(
-          function(error) {
-            this.errors = error.response.data.errors;
-          }.bind(this)
-        );
-    }
-  }
 };
 
 
@@ -66,13 +44,42 @@ var SignupPage = {
   }
 };
 
+var LoginPage = {
+  template: "#login-page",
+  data: function() {
+    return {
+      email: "",
+      password: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        auth: { email: this.email, password: this.password }
+      };
+      axios.post("/user_token", params).then(function(response) {
+        axios.defaults.headers.common["Authorization"] =
+ "Bearer " + response.data.jwt;
+        localStorage.setItem("jwt", response.data.jwt);
+        router.push("/");
+      })
+      .catch(function(error) {
+        this.errors = ["Invalid email or password."];
+        this.email = "";
+        this.password = "";
+        }.bind(this)
+      );
+    }
+  }
+};
+
 var MenteeHomePage = {
   template: "#mentee-home-page",
   data: function() {
     return {
       message: "Welcome to the Mentee Home Page!",
       message2: "Please complete the form below.",
-      // mentee: [],
       placeUserName: "",
       placePasswordDigest: "",
       placeTitle: "",
@@ -162,8 +169,37 @@ var MentorHomePage = {
     return {
       message: "Welcome to the Mentor Home Page!",
       message2: "Please complete the form below.",
-      // mentor: []
+      placeUserName: "",
+      placePasswordDigest: "",
+      placeTitle: "",
+      placeFirstName: "",
+      placeMiddleName: "",
+      placeLastName: "",
+      placeSuffix: "",
+      placeAreaOfFocus: "",
+      placeProfession: "",
+      placeHomeAddress: "",
+      placeHomeCity: "",
+      placeHomeState: "",
+      placeHomePostalCode: "",
+      placeHomePhone: "",
+      placeMobilePhone: "",
+      placeEmailAddress: "",
+      placeBirthdate: "",
+      placeDateJoined: "",
+      placeRegionalConf: "",
+      placeRegionalConfYr: "",
+      placeRegionalConfState: "",
+      placeRegionalConfPending: "",
+      placeNationalConf: "",
+      placeNationalConfYr:"",
+      placeNationalConfState: "",
+      placeNationalConfPending: "",
+      placeActive: "",
+      placePhoto: "",
+      placeAdditionalInfo: ""
     };
+
   },
   created: function() {
     axios.get('/mentors').then(function(response) {
@@ -209,13 +245,13 @@ var MentorHomePage = {
         additional_info: this.placeAdditionalInfo
       };
       
-      // axios.post('/documents', params).then(function(response) {
-      //   // this.documents.push(response.data);
-      //   router.push("/appointments");
-      // }.bind(this));
+      axios.post('/documents', params).then(function(response) {
+        // this.documents.push(response.data);
+        router.push("/appointments");
+      }.bind(this));
 
       axios.post('/mentors', params).then(function(response) {
-        // this.mentors.push(response.data);
+        this.mentors.push(response.data);
         router.push("/documents");
       }.bind(this));
     }
@@ -229,37 +265,7 @@ var DocumentHomePage = {
   data: function() {
     return {
       message: "Welcome to the Document Home Page!",
-      message2: "Please complete the form below.",
-      // document: [],
-      placeUserName: "",
-      placePasswordDigest: "",
-      placeTitle: "",
-      placeFirstName: "",
-      placeMiddleName: "",
-      placeLastName: "",
-      placeSuffix: "",
-      placeAreaOfFocus: "",
-      placeProfession: "",
-      placeHomeAddress: "",
-      placeHomeCity: "",
-      placeHomeState: "",
-      placeHomePostalCode: "",
-      placeHomePhone: "",
-      placeMobilePhone: "",
-      placeEmailAddress: "",
-      placeBirthdate: "",
-      placeDateJoined: "",
-      placeRegionalConf: "",
-      placeRegionalConfYr: "",
-      placeRegionalConfState: "",
-      placeRegionalConfPending: "",
-      placeNationalConf: "",
-      placeNationalConfYr:"",
-      placeNationalConfState: "",
-      placeNationalConfPending: "",
-      placeActive: "",
-      placePhoto: "",
-      placeAdditionalInfo: ""
+      message2: "Please complete the form below."
     };
   },
   created: function() {
@@ -275,39 +281,11 @@ var DocumentHomePage = {
       console.log(this.placeUserName);
       var params = 
       {
-        user_name: this.placeUserName,
-        password_digest: this.placePasswordDigest,
-        title: this.placeTitle,
-        first_name: this.placeFirstName,
-        middle_name: this.placeMiddleName,
-        last_name: this.placeLastName,
-        suffix: this.placeSuffix,
-        area_of_focus: this.placeAreaOfFocus,
-        profession: this.placeProfession,
-        home_address: this.placeHomeAddress,
-        home_city: this.placeHomeCity,
-        home_state: this.placeHomeState,
-        home_postal_code: this.placeHomePostalCode,
-        home_phone: this.placeHomePhone,
-        mobile_phone: this.placeMobilePhone,
-        email_address: this.placeEmailAddress,
-        birthdate: this.placeBirthdate,
-        date_joined: this.placeDateJoined,
-        regional_conf: this.placeRegionalConf,
-        regional_conf_yr: this.placeRegionalConfYr,
-        regional_conf_state: this.placeRegionalConfState,
-        regional_conf_pending: this.placeRegionalConfPending,
-        national_conf: this.placeNationalConf,
-        national_conf_yr: this.placeNationalConfYr,
-        national_conf_state: this.placeNationalConfState,
-        national_conf_pending: this.placeNationalConfPending,
-        active: this.placeActive,
-        photo: this.placePhoto,
-        additional_info: this.placeAdditionalInfo
+      
       };
 
       axios.post('/documents', params).then(function(response) {
-        // this.documents.push(response.data);
+        this.documents.push(response.data);
         router.push("/appointments");
       }.bind(this));
     }
@@ -322,36 +300,6 @@ var AppointmentHomePage = {
     return {
       message: "Welcome to the Appointment Home Page!",
       message2: "Please complete the form below.",
-      // appointment: [],
-      placeUserName: "",
-      placePasswordDigest: "",
-      placeTitle: "",
-      placeFirstName: "",
-      placeMiddleName: "",
-      placeLastName: "",
-      placeSuffix: "",
-      placeAreaOfFocus: "",
-      placeProfession: "",
-      placeHomeAddress: "",
-      placeHomeCity: "",
-      placeHomeState: "",
-      placeHomePostalCode: "",
-      placeHomePhone: "",
-      placeMobilePhone: "",
-      placeEmailAddress: "",
-      placeBirthdate: "",
-      placeDateJoined: "",
-      placeRegionalConf: "",
-      placeRegionalConfYr: "",
-      placeRegionalConfState: "",
-      placeRegionalConfPending: "",
-      placeNationalConf: "",
-      placeNationalConfYr:"",
-      placeNationalConfState: "",
-      placeNationalConfPending: "",
-      placeActive: "",
-      placePhoto: "",
-      placeAdditionalInfo: ""
     };
   },
   created: function() {
@@ -367,42 +315,8 @@ var AppointmentHomePage = {
       console.log(this.placeUserName);
       var params = 
       {
-        user_name: this.placeUserName,
-        password_digest: this.placePasswordDigest,
-        title: this.placeTitle,
-        first_name: this.placeFirstName,
-        middle_name: this.placeMiddleName,
-        last_name: this.placeLastName,
-        suffix: this.placeSuffix,
-        area_of_focus: this.placeAreaOfFocus,
-        profession: this.placeProfession,
-        home_address: this.placeHomeAddress,
-        home_city: this.placeHomeCity,
-        home_state: this.placeHomeState,
-        home_postal_code: this.placeHomePostalCode,
-        home_phone: this.placeHomePhone,
-        mobile_phone: this.placeMobilePhone,
-        email_address: this.placeEmailAddress,
-        birthdate: this.placeBirthdate,
-        date_joined: this.placeDateJoined,
-        regional_conf: this.placeRegionalConf,
-        regional_conf_yr: this.placeRegionalConfYr,
-        regional_conf_state: this.placeRegionalConfState,
-        regional_conf_pending: this.placeRegionalConfPending,
-        national_conf: this.placeNationalConf,
-        national_conf_yr: this.placeNationalConfYr,
-        national_conf_state: this.placeNationalConfState,
-        national_conf_pending: this.placeNationalConfPending,
-        active: this.placeActive,
-        photo: this.placePhoto,
-        additional_info: this.placeAdditionalInfo
+       
       };
-
-      // axios.post('/documents', params).then(function(response) {
-      //   // this.documents.push(response.data);
-      //   router.push("/appointments");
-      // }.bind(this));
-
 
       axios.post('/appointments', params).then(function(response) {
         this.appointments.push(response.data);
@@ -419,6 +333,7 @@ var router = new VueRouter({
   [
     {path: "/", component: HomePage},
     {path: "/signup", component: SignupPage},
+    {path: "/login", component: LoginPage},
     {path: "/mentees", component: MenteeHomePage}, 
     {path: "/mentors", component: MentorHomePage}, 
     {path: "/documents", component: DocumentHomePage},
@@ -431,5 +346,11 @@ var router = new VueRouter({
 
 var app = new Vue({
   el: "#vue-app",
-  router: router
+  router: router,
+  created: function() {
+    var jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      axios.defaults.headers.common["Authorization"] = jwt;
+    }
+  }
 });
