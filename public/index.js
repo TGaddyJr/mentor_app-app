@@ -1,4 +1,70 @@
 /* global Vue, VueRouter, axios */
+var HomePage = {
+  template: "#home-page",
+  data: function() {
+    return {
+      name: "",
+      email: "",
+      password: "",
+      passwordConfirmation: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.passwordConfirmation
+      };
+      axios
+        .post("/v1/users", params)
+        .then(function(response) {
+          router.push("/login");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+  }
+};
+
+
+var SignupPage = {
+  template: "#signup-page",
+  data: function() {
+    return {
+      name: "",
+      email: "",
+      password: "",
+      passwordConfirmation: "",
+      errors: []
+    };
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.passwordConfirmation
+      };
+      axios
+        .post("/users", params)
+        .then(function(response) {
+          router.push("/login");
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+  }
+};
 
 var MenteeHomePage = {
   template: "#mentee-home-page",
@@ -143,8 +209,13 @@ var MentorHomePage = {
         additional_info: this.placeAdditionalInfo
       };
       
+      // axios.post('/documents', params).then(function(response) {
+      //   // this.documents.push(response.data);
+      //   router.push("/appointments");
+      // }.bind(this));
+
       axios.post('/mentors', params).then(function(response) {
-        this.mentors.push(response.data);
+        // this.mentors.push(response.data);
         router.push("/documents");
       }.bind(this));
     }
@@ -157,7 +228,7 @@ var DocumentHomePage = {
   template: "#document-home-page",
   data: function() {
     return {
-      message: "Welcome to the DocumentDocument Home Page!",
+      message: "Welcome to the Document Home Page!",
       message2: "Please complete the form below.",
       // document: [],
       placeUserName: "",
@@ -236,8 +307,8 @@ var DocumentHomePage = {
       };
 
       axios.post('/documents', params).then(function(response) {
-        this.documents.push(response.data);
-        // router.push("/appointments");
+        // this.documents.push(response.data);
+        router.push("/appointments");
       }.bind(this));
     }
   },
@@ -327,9 +398,15 @@ var AppointmentHomePage = {
         additional_info: this.placeAdditionalInfo
       };
 
+      // axios.post('/documents', params).then(function(response) {
+      //   // this.documents.push(response.data);
+      //   router.push("/appointments");
+      // }.bind(this));
+
+
       axios.post('/appointments', params).then(function(response) {
         this.appointments.push(response.data);
-        // router.push("/appointments");
+        router.push("/");
       }.bind(this));
     }
   },
@@ -340,7 +417,9 @@ var AppointmentHomePage = {
 var router = new VueRouter({
   routes: 
   [
-    { path: "/mentees", component: MenteeHomePage}, 
+    {path: "/", component: HomePage},
+    {path: "/signup", component: SignupPage},
+    {path: "/mentees", component: MenteeHomePage}, 
     {path: "/mentors", component: MentorHomePage}, 
     {path: "/documents", component: DocumentHomePage},
     {path: "/appointments", component: AppointmentHomePage}    

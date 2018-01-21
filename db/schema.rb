@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180107205251) do
+ActiveRecord::Schema.define(version: 20180121201727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20180107205251) do
     t.string "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "year"
   end
 
   create_table "documents", force: :cascade do |t|
@@ -39,11 +40,8 @@ ActiveRecord::Schema.define(version: 20180107205251) do
   end
 
   create_table "mentees", force: :cascade do |t|
-    t.string "user_id"
     t.string "user_name"
-    t.string "password_salt"
     t.string "password_digest"
-    t.string "password_reset"
     t.string "title"
     t.string "first_name"
     t.string "middle_name"
@@ -59,29 +57,23 @@ ActiveRecord::Schema.define(version: 20180107205251) do
     t.string "mobile_phone"
     t.string "email_address"
     t.string "birthdate"
-    t.string "integer"
     t.string "date_joined"
     t.string "regional_conf"
     t.string "regional_conf_yr"
     t.string "regional_conf_state"
-    t.string "regional_conf_pending"
     t.string "national_conf"
     t.string "national_conf_yr"
     t.string "national_conf_state"
-    t.string "national_conf_pending"
     t.string "active"
     t.string "photo"
-    t.string "addtional_info"
+    t.string "additional_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "mentors", force: :cascade do |t|
-    t.string "user_id"
     t.string "user_name"
-    t.string "password_salt"
     t.string "password_digest"
-    t.string "password_reset"
     t.string "title"
     t.string "first_name"
     t.string "middle_name"
@@ -97,19 +89,16 @@ ActiveRecord::Schema.define(version: 20180107205251) do
     t.string "mobile_phone"
     t.string "email_address"
     t.string "birthdate"
-    t.string "integer"
     t.string "date_joined"
     t.string "regional_conf"
     t.string "regional_conf_yr"
     t.string "regional_conf_state"
-    t.string "regional_conf_pending"
     t.string "national_conf"
     t.string "national_conf_yr"
     t.string "national_conf_state"
-    t.string "national_conf_pending"
     t.string "active"
     t.string "photo"
-    t.string "addtional_info"
+    t.string "additional_info"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -119,6 +108,14 @@ ActiveRecord::Schema.define(version: 20180107205251) do
     t.string "initial"
     t.string "mid_term"
     t.string "end_of_term"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
