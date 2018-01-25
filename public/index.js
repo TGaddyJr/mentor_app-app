@@ -158,10 +158,6 @@ var MenteeHomePage = {
         // this.documents.push(response.data);
         router.push("/documents");
       }.bind(this));
-
-      // axios.post('/mentees', params).then(function(response) {
-      //   this.mentees.push(response.data);
-      // }.bind(this));
     }
   },
   computed: {}
@@ -319,6 +315,39 @@ var AppointmentHomePage = {
 
       axios.post('/appointments', params).then(function(response) {
         this.appointments.push(response.data);
+        router.push("/surveys");
+      }.bind(this));
+    }
+  },
+
+  computed: {}
+};
+
+var SurveyHomePage = {
+  template: "#survey-home-page",
+  data: function() {
+    return {
+      message: "Welcome to the Survey Home Page!",
+      message2: "Please complete the form below.",
+    };
+  },
+  created: function() {
+    axios.get('/surveys').then(function(response) {
+      console.log(this);
+      console.log(response.data);
+      this.surveys = response.data;
+    }.bind(this));
+  },
+
+  methods: {
+    addSurvey: function() {
+      console.log(this.placeUserName);
+      var params = 
+      {
+      };
+
+      axios.post('/surveys', params).then(function(response) {
+        this.surveys.push(response.data);
         router.push("/");
       }.bind(this));
     }
@@ -326,6 +355,7 @@ var AppointmentHomePage = {
 
   computed: {}
 };
+
 
 var router = new VueRouter({
   routes: 
@@ -336,7 +366,8 @@ var router = new VueRouter({
     {path: "/mentees", component: MenteeHomePage}, 
     {path: "/mentors", component: MentorHomePage}, 
     {path: "/documents", component: DocumentHomePage},
-    {path: "/appointments", component: AppointmentHomePage}    
+    {path: "/appointments", component: AppointmentHomePage},    
+    {path: "/surveys", component: SurveyHomePage}    
   ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
