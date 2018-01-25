@@ -7,9 +7,7 @@ class MentorsController < ApplicationController
 
   def create
     mentor = Mentor.create!(
-      user_id: params[:user_id],
       user_name: params[:user_name],
-      password_salt: params[:password_salt],
       title: params[:title],
       first_name: params[:first_name],
       middle_name: params[:middle_name],
@@ -29,11 +27,9 @@ class MentorsController < ApplicationController
       regional_conf: params[:regional_conf],
       regional_conf_yr: params[:regional_conf_yr],
       regional_conf_state: params[:regional_conf_state],
-      regional_conf_pending: params[:regional_conf_pending],
       national_conf: params[:national_conf],
       national_conf_yr: params[:national_conf_yr],
       national_conf_state: params[:national_conf_state],
-      national_conf_pending: params[:national_conf_pending],
       active: params[:active],
       photo: params[:photo],
       additional_info: params[:additional_info],

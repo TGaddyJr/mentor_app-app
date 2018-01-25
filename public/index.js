@@ -154,10 +154,14 @@ var MenteeHomePage = {
         photo: this.placePhoto,
         additional_info: this.placeAdditionalInfo
       };
-
       axios.post('/mentees', params).then(function(response) {
-        this.mentees.push(response.data);
+        // this.documents.push(response.data);
+        router.push("/documents");
       }.bind(this));
+
+      // axios.post('/mentees', params).then(function(response) {
+      //   this.mentees.push(response.data);
+      // }.bind(this));
     }
   },
   computed: {}
@@ -245,13 +249,8 @@ var MentorHomePage = {
         additional_info: this.placeAdditionalInfo
       };
       
-      axios.post('/documents', params).then(function(response) {
-        // this.documents.push(response.data);
-        router.push("/appointments");
-      }.bind(this));
-
       axios.post('/mentors', params).then(function(response) {
-        this.mentors.push(response.data);
+        // this.documents.push(response.data);
         router.push("/documents");
       }.bind(this));
     }
@@ -285,7 +284,7 @@ var DocumentHomePage = {
       };
 
       axios.post('/documents', params).then(function(response) {
-        this.documents.push(response.data);
+        // this.documents.push(response.data);
         router.push("/appointments");
       }.bind(this));
     }
