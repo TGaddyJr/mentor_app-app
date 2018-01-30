@@ -64,12 +64,12 @@ var LoginPage = {
         localStorage.setItem("jwt", response.data.jwt);
         router.push("/");
       })
-      .catch(function(error) {
-        this.errors = ["Invalid email or password."];
-        this.email = "";
-        this.password = "";
+        .catch(function(error) {
+          this.errors = ["Invalid email or password."];
+          this.email = "";
+          this.password = "";
         }.bind(this)
-      );
+        );
     }
   }
 };
@@ -255,19 +255,20 @@ var MentorHomePage = {
   computed: {}
 };
 
+
 var DocumentHomePage = {
   template: "#document-home-page",
   data: function() {
     return {
       message: "Welcome to the Document Home Page!",
-      message2: "Please complete the form below."
+      message2: "Please complete the form below.",
     };
   },
   created: function() {
     axios.get('/documents').then(function(response) {
       console.log(this);
       console.log(response.data);
-      this.document = response.data;
+      this.documents = response.data;
     }.bind(this));
   },
 
@@ -276,11 +277,11 @@ var DocumentHomePage = {
       console.log(this.placeUserName);
       var params = 
       {
-      
+       
       };
 
       axios.post('/documents', params).then(function(response) {
-        // this.documents.push(response.data);
+        this.documents.push(response.data);
         router.push("/appointments");
       }.bind(this));
     }
@@ -288,7 +289,6 @@ var DocumentHomePage = {
 
   computed: {}
 };
-
 var AppointmentHomePage = {
   template: "#appointment-home-page",
   data: function() {
