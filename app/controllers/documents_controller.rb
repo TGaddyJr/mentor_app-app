@@ -16,5 +16,7 @@ class DocumentsController < ApplicationController
 )
     document.save
     render json: document.as_json
+
+
   end
 end

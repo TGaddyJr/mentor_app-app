@@ -7,6 +7,7 @@ end
 
 gem 'faker'
 gem 'knock'
+gem 'prawn', '~> 2.2', '>= 2.2.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
