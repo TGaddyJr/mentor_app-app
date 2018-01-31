@@ -1,8 +1,12 @@
 class DocumentsController < ApplicationController
 
   def index
-    document = Document.all
-    render json: document.as_json
+    # document = Document.all
+    # render json: document.as_json
+    Prawn::Document.generate("hello2.pdf") do
+      text "Hello World Again!"
+    end
+    render json: {}
   end
 
   def create
@@ -16,7 +20,6 @@ class DocumentsController < ApplicationController
 )
     document.save
     render json: document.as_json
-
 
   end
 end

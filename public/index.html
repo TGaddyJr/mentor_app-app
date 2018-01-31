@@ -84,9 +84,7 @@
                     </div>
                     <div id="main-navigation">
                         <nav class="main-navigation">
-                            <div class="close-icon">
-                                <i class="fa fa-close"></i>
-                            </div>
+                      
                             <ul>
                                 <li class="current-menu-item "><a href="/#/">Home</a></li>
                                 <li class="menu-item-has-children"><a href="#">Pages</a>
@@ -94,29 +92,29 @@
                                         <li><a href="/#/mentors">Mentors</a></li>
                                         <li class="menu-item-has-children"><a href="/#/documents">Mentor Documents</a>
                                             <ul>
-                                                <li><a href="/#/documents">Ground Rules and Confidentiality</a></li>
-                                                <li><a href="/#/documents">Evaluating Mentee Goals</a></li>
-                                                <li><a href="/#/documents">Mentor's Strategies and Considerations for In itial Conversations</a></li>
-                                                <li><a href="/#/documents">Mentoring Negotiating Questions and Outcomes</a></li>
-                                                <li><a href="/#/documents">Readiness Checklist</a></li>
-                                                <li><a href="/#/documents">Mentoring Partnership Agreement</a></li>
-                                                <li><a href="/#/documents">Mentoring Communication Log</a></li>
-                                                <li><a href="/#/documents">Levels of Ongoing Accountability</a></li>
-                                                <li><a href="/#/documents">Mid-Way Check Point</a></li>
-                                                <li><a href="/#/documents">Tips for Providing Feedback</a></li>
-                                                <li><a href="/#/documents">Ideas for Celebration</a></li>
-                                                <li><a href="/#/documents">Mentor Self-Evaluation</a></li>
+                                                <li><a href="/ground_rules.pdf ">Ground Rules and Confidentiality</a></li>
+                                                <li><a href="/eval_mentee_goals.pdf">Evaluating Mentee Goals</a></li>
+                                                <li><a href="/mentor_strategies.pdf">Mentor's Strategies and Considerations for Initial Conversations</a></li>
+                                                <li><a href="/mentor_negotiating.pdf">Mentoring Negotiating Questions and Outcomes</a></li>
+                                                <li><a href="/readiness_checklist.pdf">Readiness Checklist</a></li>
+                                                <li><a href="/mentor_partnership.pdf">Mentoring Partnership Agreement</a></li>
+                                                <li><a href="/mentor_communication_log.pdf">Mentoring Communication Log</a></li>
+                                                <li><a href="/levels_of_accountability.pdf">Levels of Ongoing Accountability</a></li>
+                                                <li><a href="/mid_way_checkpoint.pdf">Mid-Way Check Point</a></li>
+                                                <li><a href="/providing_feedback.pdf">Tips for Providing Feedback</a></li>
+                                                <li><a href="/ideas_for_celebration.pdf">Ideas for Celebration</a></li>
+                                                <li><a href="/mentor_self_eval.pdf">Mentor Self-Evaluation</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="/#/mentees">Mentees</a></li>
                                         <li class="menu-item-has-children"><a href="/#/documents">Mentee Documents</a>
                                             <ul>
+                                                <li><a href="/GroundRules.pdf">Ground Rules and Confidentiality</a></li>
                                                 <li><a href="/#/documents">SMART Leadership Development Goals</a></li>
                                                 <li><a href="/#/documents">SMART Goals: Success Criteria, Measurements, and Milestones</a></li>
                                                 <li><a href="/#/documents">Mentoring Work Plan</a></li>
                                                 <li><a href="/#/documents">Initial Mentoring Conversation: Preparing the Relationship</a></li>
                                                 <li><a href="/#/documents">Establishing Agreements</a></li>
-                                                <li><a href="/#/documents">Ground Rules and Confidentiality</a></li>
                                                 <li><a href="/#/documents">Mentoring Partnership Agreement</a></li>
                                                 <li><a href="/#/documents">Mentor and Mentee Meeting Recap</a></li>
                                                 <li><a href="/#/documents">Accountability Checklist</a></li>
@@ -128,7 +126,6 @@
                                         </li>
 
                                         <li><a href="/#/appointments">Appointments</a></li>
-                                        </li>
                                     </ul>
                                 </li>
                                 <li><a href="about.html">About</a> </li>
@@ -230,7 +227,10 @@
     <a class="scroll-top fa fa-angle-up" href="javascript:void(0)"></a>
     <!-- srolltop end -->
 
-    <script src=js/jquery-3.2.1.min.js></script>
+   
+</div>
+
+ <script src=js/jquery-3.2.1.min.js></script>
     <script src=js/bootstrap.min.js></script>
     <script src=js/owl.carousel.min.js></script>
     <script src=js/isotope.pkgd.min.js></script>
@@ -241,7 +241,7 @@
     <script src=js/countdown.js></script>
     <script src=js/wow.min.js></script>
     <script src=js/script.js></script>
-</div>
+
 </body>
 
 <template id="home-page">
@@ -549,84 +549,7 @@
       
       </select>
 
-    First Name:<input type="text" v-model="placeFirstName">
-    Middle Name :<input type="text" v-model="placeMiddleName">
-    Last Name:<input type="text" v-model="placeUserName">
-    Suffix:<select id="leave" onchange="leaveChange()">
-      <option value="5">II </option>
-      <option value="100">III </option>
-      <option value="90">IV</option>
-      <option value="15">Jr.</option>
-      <option value="15">Sr.</option>
-      <option value="15">, Esq.</option>
-      </select>
-
-
-    DOB:<input type="text" v-model="placeBirthdate">
-    Area Of Focus:<select id="leave" onchange="leaveChange()">
-      <option value="5">Organizational </option>
-      <option value="100">Professional</option>
-      <option value="100">Personal</option>
-      </select>
-
-    </div>   
-</p>
-
-<p>
-    <div>
-    Address:<input type="text" v-model="placeHomeAddress">
-    City:<input type="text" v-model="placeHomeCity">
-    State:<select id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
-    
-    Zip Code:<input type="text" v-model="placeHomePostalCode">
-    Home Phone:<input type="text" v-model="placeHomePhone">
-    Mobile Phone:<input type="text" v-model="placeMobilePhone">
-    Email:<input type="text" v-model="placeEmailAddress">
-    </div>  
-</p>
-
-<p>
-  <div>
-    
-    Regional Conf:<select id="leave" onchange="leaveChange()">
-      <option value="5">Yes </option>
-      <option value="100">No</option>
-      </select>
-
-    
-    Regional Conf Yr:<select id="leave" onchange="leaveChange()">
-      <option value="5">2017 </option>
-      <option value="100">2016</option>
-      <option value="100">2015</option>
-      <option value="100">2014</option>
-      </select>
-
-    
-    Regional Conf State:<select id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
-
-    
-    National Conf:<select id="leave" onchange="leaveChange()">
-      <option value="5">Yes </option>
-      <option value="100">No</option>
-      </select>
-    
-    
-    National Conf Yr:<select id="leave" onchange="leaveChange()">
-      <option value="5">2017 </option>
-      <option value="100">2016</option>
-      <option value="100">2015</option>
-      <option value="100">2014</option>
-      </select>
-
-    
-    National Conf State:<select id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
-
-    
-    Date Joined:<input type="text" v-model="placeDateJoined">
-
-  </div>
-</p>
-
+   
 <p>
   <div>
     

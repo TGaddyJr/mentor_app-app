@@ -266,7 +266,7 @@ var DocumentHomePage = {
   },
   created: function() {
     axios.get('/documents').then(function(response) {
-      console.log(this);
+      console.log("I am in the documents");
       console.log(response.data);
       this.documents = response.data;
     }.bind(this));
