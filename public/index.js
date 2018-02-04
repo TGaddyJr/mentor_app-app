@@ -289,39 +289,39 @@ var DocumentHomePage = {
 
       axios.post('/documents', params).then(function(response) {
         this.documents.push(response.data);
-        router.push("/appointments");
+        router.push("/gallery");
       }.bind(this));
     }
   },
 
   computed: {}
 };
-var AppointmentHomePage = {
-  template: "#appointment-home-page",
+var GalleryHomePage = {
+  template: "#gallery-home-page",
   data: function() {
     return {
-      message: "Welcome to the Appointment Home Page!",
-      message2: "Please complete the form below.",
+      message: "Enjoy our Gallery Page!",
+      message2: "Hover over each image for more information.",
     };
   },
   created: function() {
-    axios.get('/appointments').then(function(response) {
+    axios.get('/gallery').then(function(response) {
       console.log(this);
       console.log(response.data);
-      this.appointments = response.data;
+      this.gallery = response.data;
     }.bind(this));
   },
 
   methods: {
-    addAppointment: function() {
+    addGallery: function() {
       console.log(this.placeUserName);
       var params = 
       {
        
       };
 
-      axios.post('/appointments', params).then(function(response) {
-        this.appointments.push(response.data);
+      axios.post('/gallery', params).then(function(response) {
+        this.gallery.push(response.data);
         router.push("/surveys");
       }.bind(this));
     }
@@ -374,7 +374,7 @@ var router = new VueRouter({
     {path: "/mentees", component: MenteeHomePage}, 
     {path: "/mentors", component: MentorHomePage}, 
     {path: "/documents", component: DocumentHomePage},
-    {path: "/appointments", component: AppointmentHomePage},    
+    {path: "/gallery", component: GalleryHomePage},    
     {path: "/surveys", component: SurveyHomePage}    
   ],
   scrollBehavior: function(to, from, savedPosition) {
