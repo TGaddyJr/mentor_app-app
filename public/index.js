@@ -73,6 +73,13 @@ var LoginPage = {
     }
   }
 };
+var LogoutPage = {
+  created: function() {
+    axios.defaults.headers.common["Authorization"] = undefined;
+    localStorage.removeItem("jwt");
+    router.push("/");
+  }
+};
 
 var MenteeHomePage = {
   template: "#mentee-home-page",
@@ -363,6 +370,7 @@ var router = new VueRouter({
     {path: "/", component: HomePage},
     {path: "/signup", component: SignupPage},
     {path: "/login", component: LoginPage},
+    {path: "/logout", component: LogoutPage },
     {path: "/mentees", component: MenteeHomePage}, 
     {path: "/mentors", component: MentorHomePage}, 
     {path: "/documents", component: DocumentHomePage},
