@@ -17,6 +17,7 @@
     <link rel="icon" href="images/favicon.png" type="image/x-icon">
 
     <!-- stylesheet start -->
+    
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
@@ -67,18 +68,6 @@
                 </div>
                 <!-- .site-branding -->
                 <div class="header-nav-search">
-                    <div class="header-search">
-                        <i class="fa fa-search top-search"></i>
-                        <div class="search-popup">
-                            <form role=search action="search" class="search-wrapper">
-                                <div>
-                                    <input type="text" name="search" placeholder="Type your keyword">
-                                    <input type="submit" name="button" class="pop-search">
-                                </div>
-                            </form>
-                            <div class="search-overlay"></div>
-                        </div>
-                    </div>
                     <div class="toggle-button">
                         <span></span>
                         <span></span>
@@ -89,11 +78,10 @@
                       
             <ul>
                 <li class="current-menu-item "><a href="/#/">Home</a></li>
-                <li><a href="/#/gallery">Gallery</a></li>
                 <li class="menu-item-has-children"><a href="#">Join</a>
                    
                     <ul>
-                        <li><a href="/ground_rules.pdf ">Ground Rules and Confidentiality</a></li>
+                        <li><a href="/ground_rules.pdf " target="_blank">Ground Rules and Confidentiality</a></li>
                         <li><a href="/mentor_partnership.pdf">Mentoring Partnership Agreement</a></li>
                         <li><a href="/#/mentors">Become a Mentor</a></li>
                         <li><a href="/#/mentees">Become a Mentee</a></li>
@@ -129,6 +117,7 @@
                         <li><a href="/#/documents">SMART Leadership Development Goals</a></li>
                         <li><a href="/#/documents">Tips for Engaging in Feedback</a></li>
                     </ul>
+                <li><a href="/#/gallery">Gallery</a></li>
                 </li>
 
             </ul>
@@ -292,7 +281,7 @@
 </template>
 
 <template id="login-page">
-  <div class="vue-component">
+  <div class="vue-component" style="margin-left: 50px; margin-right: 50px">
 
     <div class="container">
       <h1>Login</h1>
@@ -345,111 +334,144 @@
 
 
 <template id="mentee-home-page">
-  <div class="vue-component">
+  <div class="vue-component" style="margin-left: 50px; margin-right: 50px">
 
     <h1>{{ message }}</h1>
     <h2>{{ message2 }}</h2>
 
-<p>
     <div>
+        Title:<select v-model="placeTitle" id="leave" onchange="leaveChange()">
+          <option value="5">Mr. </option>
+          <option value="100">Mrs. </option>
+          <option value="90">Ms.</option>
+          <option value="15">Miss.</option>
+          <option value="15">Dr. </option>
+          
+          </select>
+    </div>
+
+    <div>
+        First Name:<input type="text" v-model="placeFirstName">
+    </div>
     
-    Title:<select id="leave" onchange="leaveChange()">
-      <option value="5">Mr. </option>
-      <option value="100">Mrs. </option>
-      <option value="90">Ms.</option>
-      <option value="15">Miss.</option>
-      <option value="15">Dr. </option>
-      
-      </select>
+    <div>
+        Middle Name :<input type="text" v-model="placeMiddleName">
+    </div>
+    
+    <div>
+        Last Name:<input type="text" v-model="placeLastName">
+    </div>
+    
+    <div>
+        Suffix:<select v-model="placeSuffix" id="leave" onchange="leaveChange()">
+          <option value="5">II </option>
+          <option value="100">III </option>
+          <option value="90">IV</option>
+          <option value="15">Jr.</option>
+          <option value="15">Sr.</option>
+          <option value="15">, Esq.</option>
+          </select>
+    </div>
 
-    First Name:<input type="text" v-model="placeFirstName">
-    Middle Name :<input type="text" v-model="placeMiddleName">
-    Last Name:<input type="text" v-model="placeUserName">
-    Suffix:<select id="leave" onchange="leaveChange()">
-      <option value="5">II </option>
-      <option value="100">III </option>
-      <option value="90">IV</option>
-      <option value="15">Jr.</option>
-      <option value="15">Sr.</option>
-      <option value="15">, Esq.</option>
-      </select>
-
-
-    DOB:<input type="text" v-model="placeBirthdate">
-    Area Of Focus:<select id="leave" onchange="leaveChange()">
-      <option value="5">Organizational </option>
-      <option value="100">Professional</option>
-      <option value="100">Personal</option>
-      </select>
-
+    <div>
+        DOB:<input type="text" v-model="placeBirthdate">
     </div>   
-</p>
-
-<p>
+    
     <div>
-    Address:<input type="text" v-model="placeHomeAddress">
-    City:<input type="text" v-model="placeHomeCity">
-    State:<select id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
+        Area Of Focus:<select v-model="placeAreaOfFocus" id="leave" onchange="leaveChange()">
+          <option value="5">Organizational </option>
+          <option value="100">Professional</option>
+          <option value="100">Personal</option>
+          </select>
+    </div>   
+
+    <div>
+        Address:<input type="text" v-model="placeHomeAddress">
+    </div>
+
+    <div>
+        City:<input type="text" v-model="placeHomeCity">
+    </div>
+
+    <div>
+        State:<select v-model="placeHomeState" id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
+    </div>
     
-    Zip Code:<input type="text" v-model="placeHomePostalCode">
-    Home Phone:<input type="text" v-model="placeHomePhone">
-    Mobile Phone:<input type="text" v-model="placeMobilePhone">
-    Email:<input type="text" v-model="placeEmailAddress">
+    <div>
+        Zip Code:<input type="text" v-model="placeHomePostalCode">
+    </div>
+    
+    <div>
+        Home Phone:<input type="text" v-model="placeHomePhone">
+    </div>
+
+    <div>
+        Mobile Phone:<input type="text" v-model="placeMobilePhone">
+    </div>
+
+    <div>
+        Email:<input type="text" v-model="placeEmailAddress">
     </div>  
-</p>
 
-<p>
-  <div>
+    <div>
     
-    Regional Conf:<select id="leave" onchange="leaveChange()">
-      <option value="5">Yes </option>
-      <option value="100">No</option>
-      </select>
+        Regional Conf:<select v-model="placeRegionalConf" id="leave" onchange="leaveChange()">
+          <option value="5">Yes </option>
+          <option value="100">No</option>
+          </select>
+    </div>
+    
+    <div>
+        Regional Conf Yr:<select v-model="placeRegionalConfYr"id="leave" onchange="leaveChange()">
+          <option value="5">2017 </option>
+          <option value="100">2016</option>
+          <option value="100">2015</option>
+          <option value="100">2014</option>
+          </select>
+    </div>
+    
+    <div>
+        Regional Conf State:<select v-model="placeRegionalConfState"id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
+    </div>
+    
+    <div>
+        National Conf:<select v-model="placeNationalConf" id="leave" onchange="leaveChange()">
+        <option value="5">Yes </option>
+        <option value="100">No</option>
+        </select>
+    </div>
 
-    
-    Regional Conf Yr:<select id="leave" onchange="leaveChange()">
-      <option value="5">2017 </option>
-      <option value="100">2016</option>
-      <option value="100">2015</option>
-      <option value="100">2014</option>
-      </select>
+    <div>
+        National Conf Yr:<select v-model="placeNationalConfYr" id="leave" onchange="leaveChange()">
+          <option value="5">2017 </option>
+          <option value="100">2016</option>
+          <option value="100">2015</option>
+          <option value="100">2014</option>
+          </select>
+    </div>
+    <div>
+        National Conf State:<select v-model="placeNationalConfState" id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
+    </div>
+    <div>
+        Date Joined:<input type="text" v-model="placeDateJoined">
+      </div>
 
-    
-    Regional Conf State:<select id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
+    <div>    
+        Profession:<input type="text" v-model="placeProfession">    
+    </div>
 
+    <div>
+        Active:<input type="text" v-model="placeActive">
+    </div>
     
-    National Conf:<select id="leave" onchange="leaveChange()">
-      <option value="5">Yes </option>
-      <option value="100">No</option>
-      </select>
-    
-    
-    National Conf Yr:<select id="leave" onchange="leaveChange()">
-      <option value="5">2017 </option>
-      <option value="100">2016</option>
-      <option value="100">2015</option>
-      <option value="100">2014</option>
-      </select>
+    <div>
+        Photo:<input type="text" v-model="placePhoto">
+    </div>
 
-    
-    National Conf State:<select id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
+    <div>
+        Additional Info:<input type="text" v-model="placeAdditionalInfo">
+    </div>
 
-    
-    Date Joined:<input type="text" v-model="placeDateJoined">
-
-  </div>
-</p>
-
-<p>
-  <div>
-    
-    Profession:<input type="text" v-model="placeProfession">    
-    Active:<input type="text" v-model="placeActive">
-    Photo:<input type="text" v-model="placePhoto">
-    Additional Info:<input type="text" v-model="placeAdditionalInfo">
-
-  </div>
-</p>
 
   <button v-on:click="addMentee()"> Click here to add Mentee</button>
 
@@ -458,8 +480,9 @@
 
 
 
+
 <template id="mentor-home-page">
-  <div class="vue-component">
+  <div class="vue-component" style="margin-left: 50px; margin-right: 50px">
 
     <h1> {{ message }} </h1>
     <h2> {{ message2 }} </h2>
@@ -467,7 +490,7 @@
 <p>
     <div>
     
-    Title:<select id="leave" onchange="leaveChange()">
+    Title:<select v-model="placeTitle" id="leave" onchange="leaveChange()">
       <option value="5">Mr. </option>
       <option value="100">Mrs. </option>
       <option value="90">Ms.</option>
@@ -478,8 +501,8 @@
 
     First Name:<input type="text" v-model="placeFirstName">
     Middle Name :<input type="text" v-model="placeMiddleName">
-    Last Name:<input type="text" v-model="placeUserName">
-    Suffix:<select id="leave" onchange="leaveChange()">
+    Last Name:<input type="text" v-model="placeLastName">
+    Suffix:<select v-model="placeSuffix" id="leave" onchange="leaveChange()">
       <option value="5">II </option>
       <option value="100">III </option>
       <option value="90">IV</option>
@@ -490,7 +513,7 @@
 
 
     DOB:<input type="text" v-model="placeBirthdate">
-    Area Of Focus:<select id="leave" onchange="leaveChange()">
+    Area Of Focus:<select v-model="placeAreaOfFocus" id="leave" onchange="leaveChange()">
       <option value="5">Organizational </option>
       <option value="100">Professional</option>
       <option value="100">Personal</option>
@@ -503,7 +526,8 @@
     <div>
     Address:<input type="text" v-model="placeHomeAddress">
     City:<input type="text" v-model="placeHomeCity">
-    State:<select id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
+
+    State:<select v-model="placeHomeState" id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
     
     Zip Code:<input type="text" v-model="placeHomePostalCode">
     Home Phone:<input type="text" v-model="placeHomePhone">
@@ -515,13 +539,13 @@
 <p>
   <div>
     
-    Regional Conf:<select id="leave" onchange="leaveChange()">
+    Regional Conf:<select v-model="placeRegionalConf" id="leave" onchange="leaveChange()">
       <option value="5">Yes </option>
       <option value="100">No</option>
       </select>
 
     
-    Regional Conf Yr:<select id="leave" onchange="leaveChange()">
+    Regional Conf Yr:<select v-model="placeRegionalConfYr" id="leave" onchange="leaveChange()">
       <option value="5">2017 </option>
       <option value="100">2016</option>
       <option value="100">2015</option>
@@ -529,16 +553,16 @@
       </select>
 
     
-    Regional Conf State:<select id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
+    Regional Conf State:<select v-model="placeRegionalConfState" id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
 
     
-    National Conf:<select id="leave" onchange="leaveChange()">
+    National Conf:<select v-model="placeNationalConf" id="leave" onchange="leaveChange()">
       <option value="5">Yes </option>
       <option value="100">No</option>
       </select>
     
     
-    National Conf Yr:<select id="leave" onchange="leaveChange()">
+    National Conf Yr:<select v-model="placeNationalConfYr" id="leave" onchange="leaveChange()">
       <option value="5">2017 </option>
       <option value="100">2016</option>
       <option value="100">2015</option>
@@ -546,7 +570,7 @@
       </select>
 
     
-    National Conf State:<select id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
+    National Conf State:<select v-model="placeNationalConfState" id="state" name="state"><option value="---">---</option><option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="District of Columbia">District of Columbia</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Guam">Guam</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Northern Marianas Islands">Northern Marianas Islands</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Puerto Rico">Puerto Rico</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Virgin Islands">Virgin Islands</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option></select>
 
     
     Date Joined:<input type="text" v-model="placeDateJoined">
@@ -570,9 +594,10 @@
 
   </div>
 </template>
+</div>
 
 <template id="document-home-page">
-  <div class="vue-component">
+  <div class="vue-component" style="margin-left: 50px; margin-right: 50px">
 
     <h1>{{ message }}</h1>
     <h2>{{ message2 }}</h2>
@@ -607,7 +632,7 @@
 </template>
 
 <template id="gallery-home-page">
-  <div class="vue-component">
+  <div class="vue-component" style="margin-left: 50px; margin-right: 50px">
 
     <h1> {{ message }} </h1>
     <h2> {{ message2 }} </h2>
@@ -717,14 +742,12 @@
 
 </p>
 
-<!--   <button v-on:click="addGallery()"> Click here to add Gallery</button>
- -->
 
   </div>
 </template>
 
 <template id="survey-home-page">
-  <div class="vue-component">
+  <div class="vue-component" style="margin-left: 50px; margin-right: 50px">
 
     <h1> {{ message }} </h1>
     <h2> {{ message2 }} </h2>
@@ -738,23 +761,3 @@
 
 
 </html>
-
-                <!-- <div class="col-md-5 col-sm-5 ">
-                    <div class="coaching-sign">
-                        <form>
-                            <div class="title sec-title">
-                                <h2>Sign Up Now</h2>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="name" placeholder="Enter your Name">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="email" placeholder="Enter your Email">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" name="number" placeholder="Enter your Number">
-                            </div>
-                            <button class="button btn btn-primary">Get It</button>
-                        </form>
-                    </div>
- -->
