@@ -163,7 +163,7 @@ var MenteeHomePage = {
       };
       axios.post('/mentees', params).then(function(response) {
         // this.documents.push(response.data);
-        router.push("/documents");
+        router.push("/gallery");
       }.bind(this));
     }
   },
@@ -254,7 +254,7 @@ var MentorHomePage = {
       
       axios.post('/mentors', params).then(function(response) {
         // this.documents.push(response.data);
-        router.push("/documents");
+        router.push("/gallery");
       }.bind(this));
     }
   },
